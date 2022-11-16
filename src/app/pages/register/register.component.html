@@ -1,0 +1,38 @@
+<div class="main">
+  <div class="row">
+    <div class="left">
+      <!-- <img src="../../../assets/acad.jpg" class="lImg" alt="Students"> -->
+      <!-- hi -->
+    </div>
+    <div class="right">
+      <h1 class="title">REGISTER</h1>
+      <form>
+        <div class="example-container">
+          <mat-form-field class="inp" appearance="outline">
+            <mat-label>Enter your name</mat-label>
+            <input matInput placeholder="Harry" [formControl]="name" required>
+            <mat-error *ngIf="name.invalid">{{getNameMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field class="inp" appearance="outline">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="@" [formControl]="email" required>
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field appearance="outline" class="inp">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" required>
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="password.invalid">{{getPassMessage()}}</mat-error>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button type="submit" class="log" onclick="register()">Register</button>
+      </form>
+    </div>
+  </div>
+</div>

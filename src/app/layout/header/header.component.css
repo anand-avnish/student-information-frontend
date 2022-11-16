@@ -1,0 +1,20 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.head{
+  width:100vw;
+  height: 12vh;
+  display:flex;
+  align-items: center;
+  font-family: 'Montserrat', "Helvetica Neue", sans-serif;
+  font-weight: bolder;
+  background-color: white;
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+.logo{
+  height: 10vh;
+  margin-right: 20px;
+}
