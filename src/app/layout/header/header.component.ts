@@ -8,14 +8,21 @@ import { UserService } from 'src/app/services/users.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  loggedin=false;
+  loggedin:boolean=false;
 
   constructor(
-    private userService: UserService,
+    public userService: UserService,
     private router: Router,
-  ) { }
+  ) {
+    this.loggedin=userService.logged;
+  }
 
   ngOnInit(){
+    // this.userService.isLoggedIn();
+    this.userService.isAuthenticatedObs.subscribe(val=>{
+      this.loggedin=val;
+      console.log(this.loggedin);
+    });
   }
 
   async logout(){

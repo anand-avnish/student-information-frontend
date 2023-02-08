@@ -26,36 +26,36 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async register(){
-    // console.log(value)
-    let email=this.email.value;
-    let pass=this.password.value;
-    if (!email&&!pass) {
-      return;
-    }
-    // this.loading = true;
-    this.userService.login(email, pass).subscribe(async (data)=>{
-      // console.log(data);
-      // this.isAccepted = data['isAccepted'];
-      if(data['message']=='authenticated'){
-        localStorage.setItem("user_token", data['token']);
-        localStorage.setItem("name", data['name']);
-        localStorage.setItem("type", data['user_type']);
-        this.userService.setToken(data['token']);
-        const typeArr = data['user_type'];
-        this.router.navigate(['/home']);
-      }
-    },(error)=>{
-      // this.loading = false;
-      const dialogRef = this.dialog.open(MessagePopupDialog, {
-        data: {
-          title: "Login Failed",
-          message: error.error.message,
-        },
-        minWidth: '300px',
-      });
-    })
-  }
+  // async register(){
+  //   // console.log(value)
+  //   let email=this.email.value;
+  //   let pass=this.password.value;
+  //   if (!email&&!pass) {
+  //     return;
+  //   }
+  //   // this.loading = true;
+  //   this.userService.login(email, pass).subscribe(async (data)=>{
+  //     // console.log(data);
+  //     // this.isAccepted = data['isAccepted'];
+  //     if(data['message']=='authenticated'){
+  //       localStorage.setItem("user_token", data['token']);
+  //       localStorage.setItem("name", data['name']);
+  //       localStorage.setItem("type", data['user_type']);
+  //       this.userService.setToken(data['token']);
+  //       const typeArr = data['user_type'];
+  //       this.router.navigate(['/home']);
+  //     }
+  //   },(error)=>{
+  //     // this.loading = false;
+  //     const dialogRef = this.dialog.open(MessagePopupDialog, {
+  //       data: {
+  //         title: "Login Failed",
+  //         message: error.error.message,
+  //       },
+  //       minWidth: '300px',
+  //     });
+  //   })
+  // }
 
   getErrorMessage() {
     if (this.email.hasError('required')) {

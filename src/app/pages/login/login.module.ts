@@ -26,7 +26,6 @@ const route = [
   ],
   imports: [
     CommonModule,
-    MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
     MatFormFieldModule,

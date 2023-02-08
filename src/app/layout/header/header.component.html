@@ -5,25 +5,25 @@
 <nav class="head navbar navbar-expand-lg sticky-top d-print-none">
   <div class="container-fluid hd">
     <img src="../../../assets/stud.png" type="button" class="logo" alt="">
-    <a class="navbar-brand" href="/">Student Information</a>
+    <a class="navbar-brand" routerLink="/home">Student Information</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;" *ngIf="loggedin">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;" *ngIf="userService.isAuthenticatedObs | async">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/students">Student</a>
+          <a class="nav-link active" aria-current="page" routerLink="/home">Student</a>
         </li>
         <li>
-          <a class="nav-link active" aria-current="page" href="/courses">Course</a>
+          <a class="nav-link active" aria-current="page" routerLink="/courses">Course</a>
         </li>
       </ul>
     </div>
     <div class="navbar-nav ml-auto">
       <a class="nav-link" routerLink="/signin" *ngIf="!loggedin">Login</a>
-      <a class="nav-link" routerLink="/signup" *ngIf="!loggedin">Register</a>
-      <!-- <a class="nav-link" routerLink="/signup" *ngIf="loggedin">Logout</a> -->
-      <a class="nav-link" type="button" (click)="logout()">Logout</a>
+      <!-- <a class="nav-link" routerLink="/signup" *ngIf="!loggedin">Register</a> -->
+      <a class="nav-link" type="button" (click)="logout()" *ngIf="loggedin">Logout</a>
+      <!-- <a class="nav-link" type="button" (click)="logout()">Logout</a> -->
     </div>
   </div>
 </nav>

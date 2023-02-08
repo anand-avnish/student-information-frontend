@@ -17,15 +17,15 @@
         <div class="example-container">
           <mat-form-field appearance="outline" class="inp">
             <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" required>
+            <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
             <mat-error *ngIf="password.invalid">{{getPassMessage()}}</mat-error>
           </mat-form-field>
-          <p>New Student? <a routerLink="/signup">Register Here</a></p>
+          <!-- <p>New Student? <a routerLink="/signup">Register Here</a></p> -->
         </div>
-        <button mat-raised-button type="submit" class="log" onclick="login()">Login</button>
+        <button mat-raised-button type="submit" class="log" (click)="login()">Login</button>
       </form>
     </div>
   </div>

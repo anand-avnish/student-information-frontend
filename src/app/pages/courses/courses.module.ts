@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,15 +8,15 @@ import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatCardModule} from '@angular/material/card';
+import { CoursesComponent } from './courses.component';
 
 const route = [
-  { path: '', component: HomeComponent },
+  { path: '', component: CoursesComponent },
 ];
 
 @NgModule({
   declarations: [
-    HomeComponent
+    CoursesComponent,
   ],
   imports: [
     CommonModule,
@@ -30,8 +29,7 @@ const route = [
     MatIconModule,
     MatDialogModule,
     MatDividerModule,
-    MatCardModule,
     RouterModule.forChild(route)
   ]
 })
-export class HomeModule { }
+export class CoursesModule { }

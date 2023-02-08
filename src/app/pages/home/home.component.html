@@ -1,1 +1,48 @@
-<p>home works!</p>
+<div class="main">
+  <div class="row">
+    <div class="left">
+      <h1 class="title">DETAILS</h1>
+      <form>
+        <button mat-raised-button type="submit" class="log" routerLink="/edit">Edit Details</button>
+        <mat-card class="card">
+          <p>
+            <span class="key">NAME</span><span class="colon">:&ensp;&ensp;</span>
+            <span class="value">{{student.name}}</span>
+          </p>
+          <p>
+            <span class="key">USN</span><span class="colon">:&ensp;&ensp;</span>
+            <span class="value">{{student.usn}}</span>
+          </p>
+          <p>
+            <span class="key">SEM</span><span class="colon">:&ensp;&ensp;</span>
+            <span class="value">{{student.sem}}</span>
+          </p>
+          <p>
+            <span class="key">DOB</span><span class="colon">:&ensp;&ensp;</span>
+            <span class="value">{{student.dob.substring(0,10)}}</span>
+          </p>
+          <p>
+            <span class="key">EMAIL</span><span class="colon">:&ensp;&ensp;</span>
+            <span class="value">{{student.email}}</span>
+          </p>
+          <p>
+            <span class="key">MOBILE</span><span class="colon">:&ensp;&ensp;</span>
+            <span class="value">{{student.phone}}</span>
+          </p>
+          <p>
+            <span class="key">COLLEGE</span><span class="colon">:&ensp;&ensp;</span>
+            <span class="value">{{student.college}}</span>
+          </p>
+          <p>
+            <span class="key">ADDRESS</span><span class="colon">:&ensp;&ensp;</span>
+            <span class="value">{{student.address}}</span>
+          </p>
+        </mat-card>
+      </form>
+    </div>
+    <div class="right">
+      <!-- <img src="../../../assets/acad.jpg" class="lImg" alt="Students"> -->
+      <!-- hi -->
+    </div>
+  </div>
+</div>

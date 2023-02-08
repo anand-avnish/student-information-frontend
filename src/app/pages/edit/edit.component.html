@@ -1,0 +1,78 @@
+<div class="main">
+  <div class="row">
+    <div class="left">
+      <div class="head">
+        <mat-icon aria-hidden="false" class="back" type="button" routerLink="/home" aria-label="Back" fontIcon="arrow_back"></mat-icon>
+        <h1 class="title">EDIT DETAILS</h1>
+      </div>
+      <form action="submit" [formGroup]="studentForm">
+        <button mat-raised-button type="submit" class="log" (click)="save()">Save Details</button>
+        <mat-card class="card">
+            <p>
+              <span class="key">NAME</span><span class="colon">:&ensp;&ensp;</span>
+              <!-- <span class="value">{{student.name}}</span> -->
+              <mat-form-field class="input" appearance="legacy">
+                <!-- <mat-label>Favorite food</mat-label> -->
+                <input matInput placeholder="Aman" formControlName="name" required>
+              </mat-form-field>
+            </p>
+            <p>
+              <span class="key">USN</span><span class="colon">:&ensp;&ensp;</span>
+              <!-- <span class="value">{{student.usn}}</span> -->
+              <mat-form-field class="input" appearance="legacy">
+                <!-- <mat-label>Favorite food</mat-label> -->
+                <input matInput placeholder="123456" formControlName="usn" required>
+              </mat-form-field>
+            </p>
+            <p>
+              <span class="key">SEM</span><span class="colon">:&ensp;&ensp;</span>
+              <!-- <span class="value">{{student.sem}}</span> -->
+              <mat-form-field class="input" appearance="legacy">
+                <!-- <mat-label>Favorite food</mat-label> -->
+                <input matInput placeholder="1" type="number" min="1" max="8" formControlName="sem" required>
+              </mat-form-field>
+            </p>
+            <p>
+              <span class="key">DOB</span><span class="colon">:&ensp;&ensp;</span>
+              <!-- <span class="value">{{student.dob}}</span> -->
+              <mat-form-field class="input" appearance="legacy">
+                <!-- <mat-label>Choose a date</mat-label> -->
+                <input matInput placeholder="MM/DD/YYYY" [matDatepicker]="picker" formControlName="dob" required>
+                <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </p>
+            <p>
+              <span class="key">MOBILE</span><span class="colon">:&ensp;&ensp;</span>
+              <!-- <span class="value">{{student.phone}}</span> -->
+              <mat-form-field class="input" appearance="legacy">
+                <!-- <mat-label>Favorite food</mat-label> -->
+                <input matInput placeholder="1234567890" formControlName="phone" required>
+              </mat-form-field>
+            </p>
+            <p>
+              <span class="key">COLLEGE</span><span class="colon">:&ensp;&ensp;</span>
+              <!-- <span class="value">{{student.college}}</span> -->
+              <mat-form-field class="input" appearance="legacy">
+                <!-- <mat-label>Favorite food</mat-label> -->
+                <input matInput placeholder="ABC College" formControlName="college" required>
+              </mat-form-field>
+            </p>
+            <p>
+              <span class="key">ADDRESS</span><span class="colon">:&ensp;&ensp;</span>
+              <!-- <span class="value">{{student.address}}</span> -->
+              <mat-form-field class="input" appearance="legacy">
+                <!-- <mat-label>Favorite food</mat-label> -->
+                <input matInput placeholder="ABC Road" formControlName="address" required>
+              </mat-form-field>
+            </p>
+        </mat-card>
+      </form>
+    </div>
+    <div class="right">
+      <!-- <img src="../../../assets/acad.jpg" class="lImg" alt="Students"> -->
+      <!-- hi -->
+    </div>
+  </div>
+</div>

@@ -12,7 +12,7 @@ import { MessagePopupDialog } from './message-popup/message-popup-dialog';
 })
 export class LoginComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$')]);
+  password = new FormControl('', [Validators.required]);
   hide=true;
 
   constructor(
@@ -25,34 +25,36 @@ export class LoginComponent implements OnInit {
   }
 
   async login(){
-    // console.log(value)
     let email=this.email.value;
     let pass=this.password.value;
+    console.log(email)
     if (!email&&!pass) {
       return;
     }
+    let details={
+      username:email,
+      password:pass
+    }
     // this.loading = true;
-    this.userService.login(email, pass).subscribe(async (data)=>{
-      // console.log(data);
-      // this.isAccepted = data['isAccepted'];
-      if(data['message']=='authenticated'){
-        localStorage.setItem("user_token", data['token']);
-        localStorage.setItem("name", data['name']);
-        localStorage.setItem("type", data['user_type']);
-        this.userService.setToken(data['token']);
-        const typeArr = data['user_type'];
+    try {
+      console.log(details);
+
+      const det=await this.userService.login(details);
+      console.log(det);
+      if(det!=undefined) {
+        this.userService.loggedIn();
         this.router.navigate(['/home']);
       }
-    },(error)=>{
-      // this.loading = false;
+
+    } catch (error) {
       const dialogRef = this.dialog.open(MessagePopupDialog, {
         data: {
           title: "Login Failed",
-          message: error.error.message,
+          message: "Wrong Credentials",
         },
         minWidth: '300px',
       });
-    })
+    }
   }
 
   getErrorMessage() {
